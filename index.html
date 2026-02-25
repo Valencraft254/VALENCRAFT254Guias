@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Staff - VALENCRAFT</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f0f1a, #1a1a2e);
+    color: white;
+    text-align: center;
+}
+
+/* BOTON SERVICIOS */
+.servicios-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: black;
+    color: white;
+    border: 1px solid #444;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.servicios-btn:hover {
+    background: #111;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #1a1a2e;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid #3b82ff;
+}
+
+.modal h3 {
+    color: #3b82ff;
+}
+
+/* BOTON VERDE */
+.buy-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    background: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buy-btn:hover {
+    background: #16a34a;
+}
+
+/* SECCIONES */
+.section {
+    display: none;
+    padding: 60px 20px;
+}
+
+.active {
+    display: block;
+}
+
+/* BOTONES PRINCIPALES */
+.main-btn {
+    margin: 15px;
+    padding: 15px 35px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 2px solid #3b82ff;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    background: #3b82ff;
+    transform: scale(1.05);
+}
+
+/* BOTONES NEGROS COMANDOS */
+.cmd-btn {
+    display: block;
+    margin: 15px auto;
+    padding: 15px;
+    width: 90%;
+    max-width: 600px;
+    background: black;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cmd-btn:hover {
+    background: #111;
+    border-color: #3b82ff;
+}
+</style>
+</head>
+
+<body>
+
+<button class="servicios-btn" onclick="openModal()">Servicios</button>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h3>4$ - Guía Gerente</h3>
+        <p>Una vez comprado contacta conmigo:</p>
+        <p><strong>valencraft254developer@gmail.com</strong></p>
+        <p>#roblox #minecraft #discord</p>
+
+        <button class="buy-btn" onclick="confirmarCompra()">
+            COMPRAR
+        </button>
+
+        <br><br>
+        <button class="main-btn" onclick="closeModal()">Cerrar</button>
+    </div>
+</div>
+
+<!-- INICIO -->
+<div id="home" class="section active">
+    <h1>Guía Oficial Staff</h1>
+    <button class="main-btn" onclick="showSection('minecraft')">Minecraft</button>
+    <button class="main-btn" onclick="showSection('discord')">Discord</button>
+    <button class="main-btn" onclick="showSection('roblox')">Roblox</button>
+</div>
+
+<!-- MINECRAFT -->
+<div id="minecraft" class="section">
+    <h2>Comandos Minecraft</h2>
+
+    <button class="cmd-btn">/ban (usuario) (razón) - Bloqueo permanente</button>
+    <button class="cmd-btn">/tban (usuario) (tiempo) (razón) - Bloqueo temporal</button>
+    <button class="cmd-btn">/mute (usuario) (tiempo) (razón) - Silenciar usuario</button>
+    <button class="cmd-btn">/staff o /mod - Inventario de moderación</button>
+    <button class="cmd-btn">/freeze (usuario) - Congelar jugador</button>
+    <button class="cmd-btn">/tp (usuario) (usuario) - Teletransporte</button>
+    <button class="cmd-btn">/vanish - Invisible</button>
+    <button class="cmd-btn">/invsee (usuario) - Ver inventarios</button>
+
+    <br>
+    <button class="main-btn" onclick="showSection('home')">Volver</button>
+</div>
+
+<!-- DISCORD -->
+<div id="discord" class="section">
+    <h2>Moderación Discord</h2>
+    <button class="cmd-btn">/ban</button>
+    <button class="cmd-btn">/mute</button>
+    <button class="cmd-btn">/clear</button>
+
+    <br>
+    <button class="main-btn" onclick="showSection('home')">Volver</button>
+</div>
+
+<!-- ROBLOX -->
+<div id="roblox" class="section">
+    <h2>Moderación Roblox</h2>
+    <p>Aquí puedes agregar sistemas administrativos.</p>
+
+    <br>
+    <button class="main-btn" onclick="showSection('home')">Volver</button>
+</div>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function openModal() {
+    document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
+function confirmarCompra() {
+    let confirmacion = confirm("¿Estás seguro que quieres comprar la Guía Gerente por 4$?");
+    if(confirmacion){
+        window.location.href="https://paypal.me/crumbychain254/4";
+    }
+}
+</script>
+
+</body>
+</html>

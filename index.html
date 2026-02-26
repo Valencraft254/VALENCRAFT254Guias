@@ -25,7 +25,6 @@ body {
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 .servicios-btn:hover {
@@ -52,22 +51,14 @@ body {
     border: 1px solid #3b82ff;
 }
 
-.modal h3 {
-    color: #3b82ff;
-}
-
-/* BOTON VERDE */
 .buy-btn {
-    display: block;
     margin-top: 20px;
     padding: 15px;
     background: #22c55e;
-    color: white;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    color: white;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 .buy-btn:hover {
@@ -84,25 +75,21 @@ body {
     display: block;
 }
 
-/* BOTONES PRINCIPALES */
+/* BOTONES */
 .main-btn {
     margin: 15px;
     padding: 15px 35px;
-    font-size: 18px;
     border-radius: 10px;
     border: 2px solid #3b82ff;
     background: transparent;
     color: white;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 .main-btn:hover {
     background: #3b82ff;
-    transform: scale(1.05);
 }
 
-/* BOTONES NEGROS COMANDOS */
 .cmd-btn {
     display: block;
     margin: 15px auto;
@@ -114,8 +101,6 @@ body {
     border-radius: 8px;
     color: white;
     text-align: left;
-    cursor: pointer;
-    transition: 0.3s;
 }
 
 .cmd-btn:hover {
@@ -140,7 +125,6 @@ body {
         <button class="buy-btn" onclick="confirmarCompra()">
             COMPRAR
         </button>
-
         <br><br>
         <button class="main-btn" onclick="closeModal()">Cerrar</button>
     </div>
@@ -149,13 +133,22 @@ body {
 <!-- INICIO -->
 <div id="home" class="section active">
     <h1>Guía Oficial Staff</h1>
-    <button class="main-btn" onclick="showSection('minecraft')">Minecraft</button>
+    <button class="main-btn" onclick="showSection('minecraftMenu')">Minecraft</button>
     <button class="main-btn" onclick="showSection('discord')">Discord</button>
     <button class="main-btn" onclick="showSection('roblox')">Roblox</button>
 </div>
 
-<!-- MINECRAFT -->
-<div id="minecraft" class="section">
+<!-- MENU MINECRAFT -->
+<div id="minecraftMenu" class="section">
+    <h2>Minecraft</h2>
+    <button class="main-btn" onclick="showSection('minecraftComandos')">Comandos</button>
+    <button class="main-btn" onclick="showSection('minecraftDatos')">Datos útiles</button>
+    <br>
+    <button class="main-btn" onclick="showSection('home')">Volver</button>
+</div>
+
+<!-- COMANDOS MINECRAFT -->
+<div id="minecraftComandos" class="section">
     <h2>Comandos Minecraft</h2>
 
     <button class="cmd-btn">/ban (usuario) (razón) - Bloqueo permanente</button>
@@ -168,7 +161,21 @@ body {
     <button class="cmd-btn">/invsee (usuario) - Ver inventarios</button>
 
     <br>
-    <button class="main-btn" onclick="showSection('home')">Volver</button>
+    <button class="main-btn" onclick="showSection('minecraftMenu')">Volver</button>
+</div>
+
+<!-- DATOS UTILES -->
+<div id="minecraftDatos" class="section">
+    <h2>Datos útiles para Staff</h2>
+
+    <button class="cmd-btn">Siempre revisar pruebas antes de sancionar.</button>
+    <button class="cmd-btn">Mantener la calma ante provocaciones.</button>
+    <button class="cmd-btn">No abusar del poder de staff.</button>
+    <button class="cmd-btn">Registrar sanciones importantes.</button>
+    <button class="cmd-btn">Usar vanish para investigar sospechas.</button>
+
+    <br>
+    <button class="main-btn" onclick="showSection('minecraftMenu')">Volver</button>
 </div>
 
 <!-- DISCORD -->
@@ -177,7 +184,6 @@ body {
     <button class="cmd-btn">/ban</button>
     <button class="cmd-btn">/mute</button>
     <button class="cmd-btn">/clear</button>
-
     <br>
     <button class="main-btn" onclick="showSection('home')">Volver</button>
 </div>
@@ -186,7 +192,6 @@ body {
 <div id="roblox" class="section">
     <h2>Moderación Roblox</h2>
     <p>Aquí puedes agregar sistemas administrativos.</p>
-
     <br>
     <button class="main-btn" onclick="showSection('home')">Volver</button>
 </div>

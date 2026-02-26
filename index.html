@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Staff - VALENCRAFT</title>
+
+<style>
+
+/* ===== FONDO GAMER PRO ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    background: #0a0a12;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0, 140, 255, 0.35), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(255, 0, 255, 0.35), transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(0, 255, 200, 0.35), transparent 40%);
+    animation: galaxyMove 18s ease-in-out infinite alternate;
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 3px 3px;
+    opacity: 0.15;
+    animation: starsMove 120s linear infinite;
+    z-index: -1;
+}
+
+@keyframes galaxyMove {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.15) translate(-40px, -40px); }
+}
+
+@keyframes starsMove {
+    from { background-position: 0 0; }
+    to { background-position: 2000px 2000px; }
+}
+
+/* BOTON SERVICIOS RGB */
+.servicios-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 12px 25px;
+    font-weight: bold;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 3px solid;
+    animation: rgbBorder 3s linear infinite;
+}
+
+@keyframes rgbBorder {
+    0% { border-color: red; }
+    33% { border-color: lime; }
+    66% { border-color: cyan; }
+    100% { border-color: red; }
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #111;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    border: 2px solid #3b82ff;
+}
+
+.buy-btn {
+    margin-top: 20px;
+    padding: 15px;
+    background: #22c55e;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.buy-btn:hover {
+    background: #16a34a;
+}
+
+/* SECCIONES */
+.section {
+    display: none;
+    padding: 80px 20px;
+}
+
+.active {
+    display: block;
+}
+
+/* BOTONES */
+.main-btn {
+    margin: 15px;
+    padding: 15px 35px;
+    border-radius: 10px;
+    border: 2px solid #3b82ff;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    background: #3b82ff;
+    box-shadow: 0 0 15px #3b82ff;
+}
+
+.cmd-btn {
+    display: block;
+    margin: 15px auto;
+    padding: 15px;
+    width: 90%;
+    max-width: 600px;
+    background: black;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: white;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.cmd-btn:hover {
+    border-color: #3b82ff;
+    box-shadow: 0 0 10px #3b82ff;
+}
+
+</style>
+</head>
+
+<body>
+
+<button class="servicios-btn" onclick="openModal()">Servicios</button>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h3>4$ - Guía Gerente</h3>
+        <p>Una vez comprado contacta conmigo:</p>
+        <p><strong>valencraft254developer@gmail.com</strong></p>
+        <p>#roblox #minecraft #discord</p>
+
+        <button class="buy-btn" onclick="confirmarCompra()">
+            COMPRAR
+        </button>
+        <br><br>
+        <button class="main-btn" onclick="closeModal()">Cerrar</button>
+    </div>
+</div>
+
+<!-- INICIO -->
+<div id="home" class="section active">
+    <h1>Guía Oficial Staff</h1>
+    <button class="main-btn" onclick="showSection('minecraftMenu')">Minecraft</button>
+    <button class="main-btn" onclick="showSection('discord')">Discord</button>
+    <button class="main-btn" onclick="showSection('roblox')">Roblox</button>
+</div>
+
+<!-- MENU MINECRAFT -->
+<div id="minecraftMenu" class="section">
+    <h2>Minecraft</h2>
+    <button class="main-btn" onclick="showSection('minecraftComandos')">Comandos</button>
+    <button class="main-btn" onclick="showSection('minecraftDatos')">Datos útiles</button>
+    <br>
+    <button class="main-btn" onclick="showSection('home')">Volver</button>
+</div>
+
+<!-- COMANDOS -->
+<div id="minecraftComandos" class="section">
+    <h2>Comandos Minecraft</h2>
+
+    <button class="cmd-btn">/ban (usuario) (razón)</button>
+    <button class="cmd-btn">/tban (usuario) (tiempo) (razón)</button>
+    <button class="cmd-btn">/mute (usuario) (tiempo) (razón)</button>
+    <button class="cmd-btn">/staff o /mod</button>
+    <button class="cmd-btn">/freeze (usuario)</button>
+    <button class="cmd-btn">/tp (usuario) (usuario)</button>
+    <button class="cmd-btn">/vanish</button>
+    <button class="cmd-btn">/invsee (usuario)</button>
+
+    <br>
+    <button class="main-btn" onclick="showSection('minecraftMenu')">Volver</button>
+</div>
+
+<!-- DATOS UTILES -->
+<div id="minecraftDatos" class="section">
+    <h2>Datos útiles para Staff</h2>
+
+    <button class="cmd-btn">Siempre revisar pruebas antes de sancionar.</button>
+    <button class="cmd-btn">Mantener la calma ante provocaciones.</button>
+    <button class="cmd-btn">No abusar del poder de staff.</button>
+    <button class="cmd-btn">Registrar sanciones importantes.</button>
+    <button class="cmd-btn">Usar vanish para investigar sospechas.</button>
+
+    <br>
+    <button class="main-btn" onclick="showSection('minecraftMenu')">Volver</button>
+</div>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function openModal() {
+    document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
+function confirmarCompra() {
+    let confirmacion = confirm("¿Estás seguro que quieres comprar la Guía Gerente por 4$?");
+    if(confirmacion){
+        window.location.href="https://paypal.me/crumbychain254/4";
+    }
+}
+</script>
+
+</body>
+</html>

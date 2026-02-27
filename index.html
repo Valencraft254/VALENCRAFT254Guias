@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Staff - Valencraft</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+color:white;
+background:
+radial-gradient(circle at 20% 30%, #1a1a40, transparent 40%),
+radial-gradient(circle at 80% 20%, #0f0f2b, transparent 40%),
+radial-gradient(circle at 50% 80%, #1b0033, transparent 40%),
+#000;
+background-attachment: fixed;
+}
+
+/* BOTONES PRINCIPALES */
+
+.menu{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:120px;
+}
+
+.menu button{
+background:#111;
+color:white;
+border:1px solid #333;
+padding:15px 30px;
+font-size:18px;
+cursor:pointer;
+border-radius:8px;
+}
+
+.menu button:hover{
+box-shadow:0 0 15px cyan;
+}
+
+/* SECCIONES */
+
+.section{
+display:none;
+padding:40px;
+}
+
+.cmd{
+background:black;
+padding:10px;
+margin-top:15px;
+border-radius:6px;
+font-weight:bold;
+}
+
+/* SERVICIOS */
+
+.servicios{
+position:fixed;
+top:10px;
+left:10px;
+cursor:pointer;
+font-weight:bold;
+background:linear-gradient(45deg, red, orange, yellow, green, cyan, blue, purple);
+padding:10px 15px;
+border-radius:8px;
+}
+
+.servicios-box{
+display:none;
+position:fixed;
+top:60px;
+left:10px;
+background:#111;
+padding:20px;
+border-radius:10px;
+width:250px;
+}
+
+.buy{
+display:block;
+margin-top:15px;
+background:green;
+padding:10px;
+text-align:center;
+border-radius:6px;
+color:white;
+text-decoration:none;
+}
+
+</style>
+
+<script>
+
+function openSection(id){
+document.querySelectorAll(".section").forEach(s=>s.style.display="none");
+document.getElementById(id).style.display="block";
+}
+
+function toggleServicios(){
+let box=document.getElementById("serviciosBox");
+box.style.display=box.style.display==="block"?"none":"block";
+}
+
+</script>
+
+</head>
+<body>
+
+<div class="servicios" onclick="toggleServicios()">Servicios</div>
+
+<div class="servicios-box" id="serviciosBox">
+<h3>4$ Guía gerente</h3>
+<p>Una vez comprado contacta conmigo a través de mi Gmail:</p>
+<p><b>valencraft254developer@gmail.com</b></p>
+<p>#roblox #minecraft #discord</p>
+
+<a class="buy" href="https://paypal.me/crumbychain254" target="_blank">COMPRAR</a>
+</div>
+
+<div class="menu">
+<button onclick="openSection('minecraft')">Minecraft</button>
+<button onclick="openSection('discord')">Discord</button>
+<button onclick="openSection('roblox')">Roblox</button>
+</div>
+
+<!-- MINECRAFT -->
+
+<div class="section" id="minecraft">
+
+<h1>Comandos Minecraft</h1>
+
+<div class="cmd">/ban (usuario) (razon)</div>
+<p>Este comando bloquea a usuarios.</p>
+
+<div class="cmd">/tban (usuario) (tiempo) (razon)</div>
+<p>Este comando bloquea a usuarios temporalmente.</p>
+
+<div class="cmd">/mute (usuario) (tiempo) (razon)</div>
+<p>Para silenciar usuarios.</p>
+
+<div class="cmd">/staff o /mod</div>
+<p>Aparecerá un inventario con el que puedes moderar.</p>
+
+<div class="cmd">/freeze (usuario)</div>
+<p>Para congelar a un usuario para que no se mueva.</p>
+
+<div class="cmd">/tp (usuario) (usuario)</div>
+<p>Para teletransportarte a usuarios instantáneamente.</p>
+
+<div class="cmd">/vanish</div>
+<p>Con este comando puedes hacerte invisible.</p>
+
+<div class="cmd">/invsee (usuario)</div>
+<p>Sirve para mirar y modificar inventarios.</p>
+
+<h1>Datos útiles</h1>
+
+<div class="cmd">Aprende los comandos</div>
+<p>
+Antes de postularte para staff es muy importante que aprendas los comandos básicos de moderación.
+</p>
+
+<div class="cmd">No abuses de poder</div>
+<p>
+Un staff debe usar sus comandos con responsabilidad. No uses tus permisos para molestar jugadores o castigar sin razón.
+</p>
+
+<div class="cmd">Conoce los plugins</div>
+<p>
+Te puede servir mucho saber sobre plugins del servidor. Entender cómo funcionan puede ayudarte a moderar mejor y a ascender más rápido.
+</p>
+
+<div class="cmd">Screenshare (SS)</div>
+<p>
+En muchos servidores se requiere hacer SS para revisar si un jugador usa hacks.
+</p>
+
+<p><b>Si faltan cosas que agregar diganme a mi Discord: valencraf</b></p>
+
+</div>
+
+<!-- DISCORD -->
+
+<div class="section" id="discord">
+<h1>Moderación Discord</h1>
+<p>Aquí puedes agregar comandos o reglas de moderación de Discord.</p>
+</div>
+
+<!-- ROBLOX -->
+
+<div class="section" id="roblox">
+<h1>Moderación Roblox</h1>
+<p>Aquí puedes agregar guías o herramientas de moderación de Roblox.</p>
+</div>
+
+</body>
+</html>
